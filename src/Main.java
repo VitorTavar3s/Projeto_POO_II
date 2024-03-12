@@ -188,7 +188,15 @@ public class Main {
     }
 
     public static void buscarVeiculo(){
+        scanner.nextLine();
+        System.out.println("Digite o modelo do veículo que quer procurar:");
+        String modelo = scanner.nextLine();
 
+        for (Veiculo veiculo: veiculos) {
+            if (veiculo.getModelo().toLowerCase().contains(modelo)){
+                System.out.println(veiculo);
+            }
+        }
     }
 
     public static void cadastrarCliente(){
