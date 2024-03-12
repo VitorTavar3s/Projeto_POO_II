@@ -214,7 +214,6 @@ public class Main {
             System.out.println("Digite o CPF da pessoa física:");
             String cpf = scanner.nextLine();
     
-            // Verificar se o CPF já existe
             for (PessoaFisica pessoa : pessoasFisicas) {
                 if (pessoa.getCpf().equals(cpf)) {
                     System.out.println("CPF já cadastrado. Não é possível cadastrar novamente.");
@@ -231,7 +230,6 @@ public class Main {
             System.out.println("Digite o CNPJ da pessoa jurídica:");
             String cnpj = scanner.nextLine();
     
-            // Verificar se o CNPJ já existe
             for (PessoaJuridica pessoa : pessoasJuridicas) {
                 if (pessoa.getCnpj().equals(cnpj)) {
                     System.out.println("CNPJ já cadastrado. Não é possível cadastrar novamente.");
@@ -248,7 +246,60 @@ public class Main {
     }    
 
     public static void alterarCliente() {
-        
+        System.out.println("Digite o tipo de cliente a ser alterado (F - Pessoa Física / J - Pessoa Jurídica):");
+        char tipoCliente = scanner.next().toUpperCase().charAt(0);
+        scanner.nextLine();
+    
+        if (tipoCliente == 'F') {
+            System.out.println("Lista de clientes pessoa física cadastrados:");
+            for (PessoaFisica pessoa : pessoasFisicas) {
+                System.out.println("CPF: " + pessoa.getCpf() + " | Nome: " + pessoa.getNome());
+            }
+    
+            System.out.println("Digite o CPF da pessoa física que deseja alterar:");
+            String cpf = scanner.nextLine();
+    
+            for (PessoaFisica pessoa : pessoasFisicas) {
+                if (pessoa.getCpf().equals(cpf)) {
+                    System.out.println("O que deseja alterar no cliente? Escolha a opção:");
+                    System.out.println("1 - Nome");
+                    System.out.println("2 - CPF");
+                    
+                    int opcao = scanner.nextInt();
+                    scanner.nextLine();
+    
+                    switch (opcao) {
+                        case 1:
+                            System.out.println("Digite o novo nome:");
+                            String novoNome = scanner.nextLine();
+                            pessoa.setNome(novoNome);
+                            System.out.println("Nome alterado com sucesso!");
+                            return;
+                        case 2:
+                            System.out.println("Digite o novo CPF:");
+                            String novoCpf = scanner.nextLine();
+                            
+                            for (PessoaFisica p : pessoasFisicas) {
+                                if (p.getCpf().equals(novoCpf)) {
+                                    System.out.println("CPF já cadastrado. Não é possível alterar.");
+                                    return;
+                                }
+                            }
+                            
+                            pessoa.setCpf(novoCpf);
+                            System.out.println("CPF alterado com sucesso!");
+                            return;
+                        default:
+                            System.out.println("Opção inválida.");
+                            return;
+                    }
+                }
+            }
+            System.out.println("CPF não encontrado.");
+        } else if (tipoCliente == 'J') {
+        } else {
+            System.out.println("Opção inválida!");
+        }
     }
     
     public static void alugarVeiculo(){
