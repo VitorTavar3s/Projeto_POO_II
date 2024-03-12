@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class Main {
         static Scanner scanner = new Scanner(System.in);
         static List<Veiculo> veiculos = new ArrayList<>();
+        static ArrayList<PessoaFisica> pessoasFisicas = new ArrayList<>();
+        static ArrayList<PessoaJuridica> pessoasJuridicas = new ArrayList<>();
+
     public static void main(String[] args) {
 
         int opcao;
@@ -199,12 +202,55 @@ public class Main {
         }
     }
 
-    public static void cadastrarCliente(){
+    public static void cadastrarCliente() {
+        System.out.println("Digite o tipo de cliente a ser cadastrado (F - Pessoa Física / J - Pessoa Jurídica):");
+        char tipoCliente = scanner.next().toUpperCase().charAt(0);
+    
+        scanner.nextLine();
+    
+        if (tipoCliente == 'F') {
+            System.out.println("Digite o nome da pessoa física:");
+            String nome = scanner.nextLine();
+            System.out.println("Digite o CPF da pessoa física:");
+            String cpf = scanner.nextLine();
+    
+            // Verificar se o CPF já existe
+            for (PessoaFisica pessoa : pessoasFisicas) {
+                if (pessoa.getCpf().equals(cpf)) {
+                    System.out.println("CPF já cadastrado. Não é possível cadastrar novamente.");
+                    return;
+                }
+            }
+    
+            PessoaFisica pessoaFisica = new PessoaFisica(nome, cpf);
+            pessoasFisicas.add(pessoaFisica);
+            System.out.println("Cliente pessoa física cadastrado com sucesso!");
+        } else if (tipoCliente == 'J') {
+            System.out.println("Digite a razão social da pessoa jurídica:");
+            String razaoSocial = scanner.nextLine();
+            System.out.println("Digite o CNPJ da pessoa jurídica:");
+            String cnpj = scanner.nextLine();
+    
+            // Verificar se o CNPJ já existe
+            for (PessoaJuridica pessoa : pessoasJuridicas) {
+                if (pessoa.getCnpj().equals(cnpj)) {
+                    System.out.println("CNPJ já cadastrado. Não é possível cadastrar novamente.");
+                    return;
+                }
+            }
+    
+            PessoaJuridica pessoaJuridica = new PessoaJuridica(razaoSocial, cnpj);
+            pessoasJuridicas.add(pessoaJuridica);
+            System.out.println("Cliente pessoa jurídica cadastrado com sucesso!");
+        } else {
+            System.out.println("Opção inválida!");
+        }
+    }    
 
+    public static void alterarCliente() {
+        
     }
-    public static void alterarCliente(){
-
-    }
+    
     public static void alugarVeiculo(){
 
     }
