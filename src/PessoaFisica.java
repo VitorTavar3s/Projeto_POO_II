@@ -24,5 +24,3 @@ public class PessoaFisica {
         this.cpf = cpf;
     }
 }
-    
-}
