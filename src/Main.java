@@ -50,7 +50,7 @@ public class Main {
             opcao = scanner.nextInt();
 
             switch (opcao) {
-                case 1 -> Cliente.cadastrarCliente();
+                case 1 -> cadastrarVeiculo();
                 case 2 -> alterarVeiculo();
                 case 3 -> buscarVeiculo();
                 case 4 -> {return false;}
