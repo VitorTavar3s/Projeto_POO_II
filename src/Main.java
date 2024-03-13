@@ -297,6 +297,51 @@ public class Main {
             }
             System.out.println("CPF não encontrado.");
         } else if (tipoCliente == 'J') {
+            System.out.println("Lista de clientes pessoa jurídica cadastrados:");
+            for (PessoaJuridica pessoa : pessoasJuridicas) {
+                System.out.println("CNPJ: " + pessoa.getCnpj() + " | Razão Social: " + pessoa.getRazaoSocial());
+            }
+    
+            System.out.println("Digite o CNPJ da pessoa jurídica que deseja alterar:");
+            String cnpj = scanner.nextLine();
+    
+            for (PessoaJuridica pessoa : pessoasJuridicas) {
+                if (pessoa.getCnpj().equals(cnpj)) {
+                    System.out.println("O que deseja alterar no cliente? Escolha a opção:");
+                    System.out.println("1 - Razão Social");
+                    System.out.println("2 - CNPJ");
+                    
+                    int opcao = scanner.nextInt();
+                    scanner.nextLine();
+    
+                    switch (opcao) {
+                        case 1:
+                            System.out.println("Digite a nova razão social:");
+                            String novaRazaoSocial = scanner.nextLine();
+                            pessoa.setRazaoSocial(novaRazaoSocial);
+                            System.out.println("Razão social alterada com sucesso!");
+                            return;
+                        case 2:
+                            System.out.println("Digite o novo CNPJ:");
+                            String novoCnpj = scanner.nextLine();
+                            
+                            for (PessoaJuridica p : pessoasJuridicas) {
+                                if (p.getCnpj().equals(novoCnpj)) {
+                                    System.out.println("CNPJ já cadastrado. Não é possível alterar.");
+                                    return;
+                                }
+                            }
+                            
+                            pessoa.setCnpj(novoCnpj);
+                            System.out.println("CNPJ alterado com sucesso!");
+                            return;
+                        default:
+                            System.out.println("Opção inválida.");
+                            return;
+                    }
+                }
+            }
+            System.out.println("CNPJ não encontrado.");
         } else {
             System.out.println("Opção inválida!");
         }
