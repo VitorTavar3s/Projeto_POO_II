@@ -4,6 +4,7 @@ public class Veiculo {
     String marca;
     String modelo;
     char tipo;
+    boolean disponibilidade;
 
     public Veiculo(String placa, String marca, String modelo, char tipo) {
         this.placa = placa;
@@ -47,5 +48,13 @@ public class Veiculo {
 
     public void setTipo(char tipo) {
         this.tipo = tipo;
+    }
+
+    public boolean isDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
     }
 }

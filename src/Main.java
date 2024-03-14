@@ -93,8 +93,8 @@ public class Main {
             opcao = scanner.nextInt();
 
             switch (opcao) {
-                case 1 -> alugarVeiculo();
-                case 2 -> devolverVeiculo();
+                case 1 -> Locacao.alugarVeiculo();
+                case 2 -> Locacao.devolverVeiculo();
                 case 3 -> System.out.println();
                 default -> System.out.println("Digite uma opção válida!");
             }
@@ -200,17 +200,6 @@ public class Main {
                 System.out.println(veiculo);
             }
         }
-    }
-
-
-
-
-    
-    public static void alugarVeiculo(){
-
-    }
-    public static void devolverVeiculo(){
-
     }
 
     public static void tipoVeiculo(char tipo){}
