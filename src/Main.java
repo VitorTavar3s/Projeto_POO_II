@@ -93,8 +93,9 @@ public class Main {
             opcao = scanner.nextInt();
 
             switch (opcao) {
-                case 1 -> Locacao.alugarVeiculo();
-                case 2 -> Locacao.devolverVeiculo();
+                //Capturar Documento do Cliente e passar como parametro
+                case 1 -> Locacao.alugarVeiculo("",Cliente.pessoasFisicas,Cliente.pessoasJuridicas,veiculos);
+                case 2 -> Locacao.devolverVeiculo("",Cliente.pessoasFisicas,Cliente.pessoasJuridicas,veiculos);
                 case 3 -> System.out.println();
                 default -> System.out.println("Digite uma opção válida!");
             }
