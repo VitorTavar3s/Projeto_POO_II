@@ -181,6 +181,9 @@ public class Veiculo {
         for (Veiculo veiculo: veiculos) {
             if (veiculo.getModelo().toLowerCase().contains(modelo)){
                 System.out.println(veiculo);
+            }else {
+                System.out.println("Veículo do modelo " + modelo + " não cadastrado!");
+                break;
             }
         }
     }

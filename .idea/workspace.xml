@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b20eb32f-be3a-4791-8e35-e276fd4a4987" name="Changes" comment="refatorado cadastrar veiculo">
+    <list default="true" id="b20eb32f-be3a-4791-8e35-e276fd4a4987" name="Changes" comment="refatorado editar veiculo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Veiculo.java" afterDir="false" />
     </list>
@@ -101,7 +101,7 @@
       <updated>1709929561910</updated>
       <workItem from="1710375203276" duration="2620000" />
       <workItem from="1710543812315" duration="2340000" />
-      <workItem from="1710602228632" duration="3279000" />
+      <workItem from="1710602228632" duration="4462000" />
     </task>
     <task id="LOCAL-00001" summary="commit inicial">
       <option name="closed" value="true" />
@@ -127,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710603720499</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refatorado editar veiculo">
+      <option name="closed" value="true" />
+      <created>1710605843370</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710605843370</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +167,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit inicial" />
     <MESSAGE value="refatorado cadastrar veiculo" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatorado cadastrar veiculo" />
+    <MESSAGE value="refatorado editar veiculo" />
+    <option name="LAST_COMMIT_MESSAGE" value="refatorado editar veiculo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
