@@ -7,12 +7,12 @@ public class Veiculo {
     String placa;
     String marca;
     String modelo;
-    char tipo;
+    String tipo;
     boolean disponibilidade;
     static List<Veiculo> veiculos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public Veiculo(String placa, String marca, String modelo, char tipo) {
+    public Veiculo(String placa, String marca, String modelo, String tipo) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
@@ -48,11 +48,11 @@ public class Veiculo {
         this.modelo = modelo;
     }
 
-    public char getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -80,8 +80,21 @@ public class Veiculo {
         System.out.println("Digite o modelo do veículo:");
         String modelo = scanner.nextLine();
         System.out.println("Digite qual o tipo do veículo (P-PEQUENO / M-MÉDIO / S-SUV):");
-        char tipo = scanner.next().toUpperCase().charAt(0);
+        String tipo = scanner.next().toUpperCase();
         scanner.nextLine();
+
+        switch (tipo){
+            case "P":
+                tipo = "Pequeno";
+                break;
+            case "M":
+                tipo = "Médio";
+                break;
+            case "S":
+                tipo = "SUV";
+                break;
+        }
+
 
         Veiculo veiculo = new Veiculo(placa,marca,modelo,tipo);
         veiculos.add(veiculo);
@@ -90,7 +103,6 @@ public class Veiculo {
     }
 
     public static boolean alterarVeiculo(){
-        scanner.nextLine();
         System.out.println("Veículos:");
         for (Veiculo veiculo: veiculos) {
             System.out.println(veiculo);
@@ -141,8 +153,19 @@ public class Veiculo {
                 veiculoSelecionado.setModelo(novoModelo);
                 break;
             case 4:
-                System.out.println("Digite o novo tipo: ");
-                char novoTipo = scanner.next().toUpperCase().charAt(0);
+                System.out.println("Digite o novo tipo (P-PEQUENO / M-MÉDIO / S-SUV): ");
+                String novoTipo = scanner.next().toUpperCase();
+                switch (novoTipo){
+                    case "P":
+                        novoTipo = "Pequeno";
+                        break;
+                    case "M":
+                        novoTipo = "Médio";
+                        break;
+                    case "S":
+                        novoTipo = "SUV";
+                        break;
+                }
                 veiculoSelecionado.setTipo(novoTipo);
                 break;
             default:
