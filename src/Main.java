@@ -92,9 +92,11 @@ public class Main {
             switch (opcao) {
 
                 case 1 ->{
-                    System.out.println("Digite seu CPF:");
+                    System.out.println("Digite o CPF ou CNPJ(Apenas números):");
+                    scanner.nextLine();
                     Locacao.alugarVeiculo(scanner.nextLine());}
-                case 2 -> {System.out.println("Digite seu CPF:");
+                case 2 -> {System.out.println("Digite o CPF ou CNPJ(Apenas números):");
+                    scanner.nextLine();
                     Locacao.devolverVeiculo(scanner.nextLine());}
                 case 3 -> System.out.println();
                 default -> System.out.println("Digite uma opção válida!");

@@ -12,11 +12,12 @@ public class Veiculo {
     static List<Veiculo> veiculos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public Veiculo(String placa, String marca, String modelo, String tipo) {
+    public Veiculo(String placa, String marca, String modelo, String tipo,boolean disponibilidade) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.tipo = tipo;
+        this.disponibilidade = true;
     }
 
     @Override
@@ -96,7 +97,7 @@ public class Veiculo {
         }
 
 
-        Veiculo veiculo = new Veiculo(placa,marca,modelo,tipo);
+        Veiculo veiculo = new Veiculo(placa,marca,modelo,tipo,true);
         veiculos.add(veiculo);
         System.out.println("Veículo cadastrado com sucesso!");
         return true;
