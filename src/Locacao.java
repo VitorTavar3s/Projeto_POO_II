@@ -16,10 +16,10 @@ public class Locacao {
         this.veiculosAlugados = new ArrayList<>();
     }
 
-    public static void alugarVeiculo(String documentoCliente, List<PessoaFisica> pessoasFisicas, List<PessoaJuridica> pessoasJuridicas, List<Veiculo> veiculos){
+    public static void alugarVeiculo(String documentoCliente){
         boolean clienteEncontrado = false;
 
-        for(PessoaFisica pessoaF : pessoasFisicas){
+        for(PessoaFisica pessoaF : Cliente.pessoasFisicas){
             if(pessoaF.getCpf().equals(documentoCliente)){
                 clienteEncontrado = true;
                 //Implementar
@@ -28,7 +28,7 @@ public class Locacao {
             }
 
             if(!clienteEncontrado){
-                for (PessoaJuridica pessoaJ : pessoasJuridicas){
+                for (PessoaJuridica pessoaJ : Cliente.pessoasJuridicas){
                     if(pessoaJ.getCnpj().equals(documentoCliente)){
                         // Implementar
                         clienteEncontrado = true;

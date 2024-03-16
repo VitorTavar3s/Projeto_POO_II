@@ -93,7 +93,7 @@ public class Main {
 
                 case 1 ->{
                     System.out.println("Digite seu CPF:");
-                    Locacao.alugarVeiculo(scanner.nextLine(), Cliente.pessoasFisicas,Cliente.pessoasJuridicas,Veiculo.veiculos);}
+                    Locacao.alugarVeiculo(scanner.nextLine());}
                 case 2 -> {System.out.println("Digite seu CPF:");
                     Locacao.devolverVeiculo(scanner.nextLine(), Cliente.pessoasFisicas,Cliente.pessoasJuridicas,Veiculo.veiculos);}
                 case 3 -> System.out.println();
