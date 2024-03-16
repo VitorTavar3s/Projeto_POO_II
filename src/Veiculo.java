@@ -178,13 +178,17 @@ public class Veiculo {
         System.out.println("Digite o modelo do veículo que quer procurar:");
         String modelo = scanner.nextLine();
 
+        boolean encontrado = false;
+
         for (Veiculo veiculo: veiculos) {
-            if (veiculo.getModelo().toLowerCase().contains(modelo)){
+            if (veiculo.getModelo().toLowerCase().contains(modelo.toLowerCase())){
                 System.out.println(veiculo);
-            }else {
-                System.out.println("Veículo do modelo " + modelo + " não cadastrado!");
-                break;
+                encontrado = true;
             }
+        }
+
+        if (!encontrado){
+            System.out.println("Veículo do modelo " + modelo + " não cadastrado!");
         }
     }
 
