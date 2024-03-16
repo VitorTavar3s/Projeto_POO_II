@@ -81,6 +81,7 @@ public class Veiculo {
         String modelo = scanner.nextLine();
         System.out.println("Digite qual o tipo do veículo (P-PEQUENO / M-MÉDIO / S-SUV):");
         char tipo = scanner.next().toUpperCase().charAt(0);
+        scanner.nextLine();
 
         Veiculo veiculo = new Veiculo(placa,marca,modelo,tipo);
         veiculos.add(veiculo);
