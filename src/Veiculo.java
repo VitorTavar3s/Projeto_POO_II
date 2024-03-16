@@ -8,7 +8,7 @@ public class Veiculo {
     String marca;
     String modelo;
     String tipo;
-    boolean disponibilidade;
+    boolean disponibilidade  = true;
     static List<Veiculo> veiculos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 

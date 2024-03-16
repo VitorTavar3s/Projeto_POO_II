@@ -7,63 +7,83 @@ public class Locacao {
     private LocalDateTime data;
     private LocalDateTime horarario;
 
-    private List<Veiculo> veiculosAlugados;
+    private static List<Veiculo> veiculosAlugados;
 
     public Locacao(String local, LocalDateTime data, LocalDateTime horarario) {
         this.local = local;
         this.data = data;
         this.horarario = horarario;
-        this.veiculosAlugados = new ArrayList<>();
+        veiculosAlugados = new ArrayList<>();
     }
 
     public static void alugarVeiculo(String documentoCliente){
         boolean clienteEncontrado = false;
 
-        for(PessoaFisica pessoaF : Cliente.pessoasFisicas){
-            if(pessoaF.getCpf().equals(documentoCliente)){
+        for(PessoaFisica pessoaF : Cliente.pessoasFisicas) {
+            if (pessoaF.getCpf().equals(documentoCliente)) {
                 clienteEncontrado = true;
-                //Implementar
-                System.out.println("Veículo alugado para " +pessoaF.getNome()+ "  com CPF: " + pessoaF.getCpf());
-                break;
-            }
-
-            if(!clienteEncontrado){
-                for (PessoaJuridica pessoaJ : Cliente.pessoasJuridicas){
-                    if(pessoaJ.getCnpj().equals(documentoCliente)){
-                        // Implementar
-                        clienteEncontrado = true;
-                        System.out.println("Veículo alugado para pessoa jurídica com CNPJ: " + pessoaJ.getCnpj());
+                for (Veiculo veiculo : Veiculo.veiculos) {
+                    if (veiculo.isDisponibilidade()) {
+                        veiculo.setDisponibilidade(false);
+                        veiculosAlugados.add(veiculo);
+                        System.out.println("Veículo alugado para " + pessoaF.getNome() + " com CPF: " + pessoaF.getCpf());
                         break;
                     }
                 }
-            }
 
-            if (!clienteEncontrado) {
-                System.out.println("Cliente não encontrado.");
+                if (!clienteEncontrado) {
+                    for (PessoaJuridica pessoaJ : Cliente.pessoasJuridicas) {
+                        if (pessoaJ.getCnpj().equals(documentoCliente)) {
+                            clienteEncontrado = true;
+                            for (Veiculo veiculo : Veiculo.veiculos) {
+                                if (veiculo.isDisponibilidade()) {
+                                    veiculo.setDisponibilidade(false);
+                                    veiculosAlugados.add(veiculo);
+                                    System.out.println("Veículo alugado para pessoa jurídica com CNPJ: " + pessoaJ.getCnpj());
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+                if (!clienteEncontrado) {
+                    System.out.println("Cliente não encontrado.");
+                }
             }
         }
-
     }
-    public static void devolverVeiculo(String documentoCliente, List<PessoaFisica> pessoasFisicas, List<PessoaJuridica> pessoasJuridicas, List<Veiculo> veiculos) {
+    public static void devolverVeiculo(String documentoCliente) {
         boolean clienteEncontrado = false;
 
-        for (PessoaFisica pessoa : pessoasFisicas) {
+        for (PessoaFisica pessoa : Cliente.pessoasFisicas) {
             if (pessoa.getCpf().equals(documentoCliente)) {
                 clienteEncontrado = true;
-                // Implentar
-                System.out.println("Veículo devolvido por pessoa física com CPF: " + pessoa.getCpf());
-                // Calcular desconto
+                for (Veiculo veiculo : veiculosAlugados) {
+                    if (veiculo.isDisponibilidade()) {
+                        veiculo.setDisponibilidade(true);
+                        veiculosAlugados.remove(veiculo);
+                        System.out.println("Veículo devolvido por pessoa física com CPF: " + pessoa.getCpf());
+                        break;
+                    }
+                }
                 break;
             }
         }
 
         if (!clienteEncontrado) {
-            for (PessoaJuridica pessoa : pessoasJuridicas) {
+            for (PessoaJuridica pessoa : Cliente.pessoasJuridicas) {
                 if (pessoa.getCnpj().equals(documentoCliente)) {
                     clienteEncontrado = true;
-                    // Implentar
-                    System.out.println("Veículo devolvido por pessoa jurídica com CNPJ: " + pessoa.getCnpj());
-                    // Calcular desconto
+                    for (Veiculo veiculo : veiculosAlugados) {
+                        if (veiculo.isDisponibilidade()) {
+                            veiculo.setDisponibilidade(true);
+                            veiculosAlugados.remove(veiculo);
+                            System.out.println("Veículo devolvido por pessoa jurídica com CNPJ: " + pessoa.getCnpj());
+                            // Calcular desconto pode ser aqui
+                            break;
+                        }
+                    }
                     break;
                 }
             }

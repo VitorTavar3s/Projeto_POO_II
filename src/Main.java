@@ -95,7 +95,7 @@ public class Main {
                     System.out.println("Digite seu CPF:");
                     Locacao.alugarVeiculo(scanner.nextLine());}
                 case 2 -> {System.out.println("Digite seu CPF:");
-                    Locacao.devolverVeiculo(scanner.nextLine(), Cliente.pessoasFisicas,Cliente.pessoasJuridicas,Veiculo.veiculos);}
+                    Locacao.devolverVeiculo(scanner.nextLine());}
                 case 3 -> System.out.println();
                 default -> System.out.println("Digite uma opção válida!");
             }
