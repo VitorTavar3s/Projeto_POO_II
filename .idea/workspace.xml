@@ -7,8 +7,6 @@
     <list default="true" id="b20eb32f-be3a-4791-8e35-e276fd4a4987" name="Changes" comment="commit inicial">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Locacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Locacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Veiculo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

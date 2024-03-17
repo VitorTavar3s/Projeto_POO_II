@@ -1,82 +1,110 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Locacao {
-    private String local;
-    private LocalDateTime data;
-    private LocalDateTime horario;
+    private String localLocacao;
+    private LocalDate dataLocacao;
+    private LocalTime horarioLocacao;
+    private String localDevolucao;
+    private LocalDateTime dataDevolucao;
+    private LocalDateTime horarioDevolucao;
 
     private static List<Veiculo> veiculosAlugados = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public Locacao(String local, LocalDateTime data, LocalDateTime horario) {
-        this.local = local;
-        this.data = data;
-        this.horario = horario;
-        veiculosAlugados = new ArrayList<>();
+    public Locacao(String localLocacao,
+                   LocalDate dataLocacao,
+                   LocalTime horarioLocacao,
+                   String localDevolucao,
+                   LocalDateTime dataDevolucao,
+                   LocalDateTime horarioDevolucao) {
+        this.localLocacao = localLocacao;
+        this.dataLocacao = dataLocacao;
+        this.horarioLocacao = horarioLocacao;
+        this.localDevolucao = localDevolucao;
+        this.dataDevolucao = dataDevolucao;
+        this.horarioDevolucao = horarioDevolucao;
     }
 
-    public static void alugarVeiculo(String documentoCliente) {
-        boolean clienteEncontrado = false;
+    public static boolean alugarVeiculo(String documentoCliente) {
+        for (Veiculo veiculo : Veiculo.veiculos) {
+            System.out.println("Veículo: " + veiculo);
+        }
+        System.out.println("Digite a placa do veículo que deseja alugar:");
+        String placaVeiculo = scanner.nextLine().toUpperCase();
+
+        System.out.println("Digite o local da locação:");
+        String localLocacao = scanner.nextLine();
+
+        LocalDate dataLocacao = LocalDate.now();
+        LocalTime horarioLocacao = LocalTime.now();
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada = dateFormatter.format(dataLocacao);
+
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        String horarioFormatado = timeFormatter.format(horarioLocacao);
+
+        Locacao locacao = new Locacao(localLocacao, dataLocacao, horarioLocacao, null,
+                null, null);
+
         boolean veiculoEncontrado = false;
-        Scanner scanner = new Scanner(System.in);
-
-
-
         for (PessoaFisica pessoaF : Cliente.pessoasFisicas) {
             if (pessoaF.getCpf().equals(documentoCliente)) {
-                clienteEncontrado = true;
-                System.out.println("Digite a placa do veículo que deseja alugar:");
-                String placaVeiculo = scanner.nextLine().toUpperCase();
-                veiculoEncontrado = alugarVeiculoParaPF(pessoaF, placaVeiculo);
+                veiculoEncontrado = alugarVeiculoParaPF(pessoaF, placaVeiculo, locacao, dataFormatada, horarioFormatado);
                 break;
             }
         }
 
-        if (!clienteEncontrado) {
+        if (!veiculoEncontrado) {
             for (PessoaJuridica pessoaJ : Cliente.pessoasJuridicas) {
                 if (pessoaJ.getCnpj().equals(documentoCliente)) {
-                    clienteEncontrado = true;
-                    System.out.println("Digite a placa do veículo que deseja alugar:");
-                    String placaVeiculo = scanner.nextLine().toUpperCase();
-                    veiculoEncontrado = alugarVeiculoParaPJ(pessoaJ, placaVeiculo);
+                    veiculoEncontrado = alugarVeiculoParaPJ(pessoaJ, placaVeiculo, locacao);
                     break;
                 }
             }
         }
 
-        if (!clienteEncontrado) {
-            System.out.println("Cliente não encontrado.");
-        } else if (!veiculoEncontrado) {
+        if (!veiculoEncontrado) {
             System.out.println("Veículo não disponível ou não encontrado.");
         }
+
+        return veiculoEncontrado;
     }
 
-    private static boolean alugarVeiculoParaPF(PessoaFisica pessoaF, String placaVeiculo) {
+    private static boolean alugarVeiculoParaPF(PessoaFisica pessoaF, String placaVeiculo,Locacao locacao, String dataFormatada, String horaFormatada) {
         for (Veiculo veiculo : Veiculo.veiculos) {
             if (veiculo.getPlaca().equals(placaVeiculo) && veiculo.isDisponibilidade()) {
                 veiculo.setDisponibilidade(false);
-                veiculosAlugados.add(veiculo);
-                System.out.println("Veículo " + veiculo.getModelo() + " alugado para " + pessoaF.getNome() + " com CPF: " + pessoaF.getCpf());
+                Locacao.veiculosAlugados.add(veiculo);
+                System.out.println("Veículo " + veiculo.getModelo() + " alugado para " + pessoaF.getNome() +
+                        " com CPF: " + pessoaF.getCpf() + " No dia: " + dataFormatada +
+                        " as: " + horaFormatada + " No local: " + locacao.localLocacao);
                 return true;
             }
         }
         return false;
     }
 
-    private static boolean alugarVeiculoParaPJ(PessoaJuridica pessoaJ, String placaVeiculo) {
+    private static boolean alugarVeiculoParaPJ(PessoaJuridica pessoaJ, String placaVeiculo, Locacao locacao) {
         for (Veiculo veiculo : Veiculo.veiculos) {
             if (veiculo.getPlaca().equals(placaVeiculo) && veiculo.isDisponibilidade()) {
                 veiculo.setDisponibilidade(false);
-                veiculosAlugados.add(veiculo);
-                System.out.println("Veículo " + veiculo.getModelo() + " alugado para " + pessoaJ.getRazaoSocial() + " com CNPJ: " + pessoaJ.getCnpj());
+                Locacao.veiculosAlugados.add(veiculo);
+                System.out.println("Veículo " + veiculo.getModelo() + " alugado para " + pessoaJ.getRazaoSocial() +
+                        " com CNPJ: " + pessoaJ.getCnpj() + " No dia: " + locacao.dataLocacao +
+                        " as: " + locacao.horarioLocacao + " No local: " + locacao.localLocacao);
                 return true;
             }
         }
         return false;
     }
+
     public static void devolverVeiculo(String documentoCliente) {
 
         boolean clienteEncontrado = false;
