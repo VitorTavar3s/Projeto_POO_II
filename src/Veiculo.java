@@ -8,21 +8,24 @@ public class Veiculo {
     String marca;
     String modelo;
     String tipo;
+    Double valorLocacao;
     boolean disponibilidade  = true;
     static List<Veiculo> veiculos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public Veiculo(String placa, String marca, String modelo, String tipo,boolean disponibilidade) {
+    public Veiculo(String placa, String marca, String modelo, String tipo,Double valorLocacao,boolean disponibilidade) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.tipo = tipo;
+        this.valorLocacao = valorLocacao;
         this.disponibilidade = true;
     }
 
     @Override
     public String toString() {
-        return "{Placa='" + placa + '\'' + ", Marca='" + marca + '\'' + ", Modelo='" + modelo + '\'' + ", Tipo=" + tipo + '}';
+        return "{Placa='" + placa + '\'' + ", Marca='" + marca + '\'' + ", Modelo='" + modelo + '\'' +
+                ", Tipo=" + tipo + ", Valor Diaria=" + valorLocacao + '}';
     }
 
     public String getPlaca() {
@@ -84,20 +87,25 @@ public class Veiculo {
         String tipo = scanner.next().toUpperCase();
         scanner.nextLine();
 
+        Double valorLocacao = 0D;
+
         switch (tipo){
             case "P":
                 tipo = "Pequeno";
+                valorLocacao = 100D;
                 break;
             case "M":
                 tipo = "Médio";
+                valorLocacao = 150D;
                 break;
             case "S":
                 tipo = "SUV";
+                valorLocacao = 200D;
                 break;
         }
 
 
-        Veiculo veiculo = new Veiculo(placa,marca,modelo,tipo,true);
+        Veiculo veiculo = new Veiculo(placa,marca,modelo,tipo,valorLocacao,true);
         veiculos.add(veiculo);
         System.out.println("Veículo cadastrado com sucesso!");
         return true;
@@ -189,7 +197,7 @@ public class Veiculo {
         }
 
         if (!encontrado){
-            System.out.println("Veículo do modelo " + modelo + " não cadastrado!");
+            System.out.println("Desculpe, não temos o veículo do modelo " + modelo + "!" );
         }
     }
 

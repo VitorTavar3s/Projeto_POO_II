@@ -32,14 +32,14 @@ public class Locacao {
     }
 
     public static boolean alugarVeiculo(String documentoCliente) {
+        System.out.println("Digite o local onde o veículo será alugado:");
+        String localLocacao = scanner.nextLine();
+
         for (Veiculo veiculo : Veiculo.veiculos) {
             System.out.println("Veículo: " + veiculo);
         }
         System.out.println("Digite a placa do veículo que deseja alugar:");
         String placaVeiculo = scanner.nextLine().toUpperCase();
-
-        System.out.println("Digite o local da locação:");
-        String localLocacao = scanner.nextLine();
 
         LocalDate dataLocacao = LocalDate.now();
         LocalTime horarioLocacao = LocalTime.now();
@@ -56,7 +56,8 @@ public class Locacao {
         boolean veiculoEncontrado = false;
         for (PessoaFisica pessoaF : Cliente.pessoasFisicas) {
             if (pessoaF.getCpf().equals(documentoCliente)) {
-                veiculoEncontrado = alugarVeiculoParaPF(pessoaF, placaVeiculo, locacao, dataFormatada, horarioFormatado);
+                veiculoEncontrado = alugarVeiculoParaPF(pessoaF, placaVeiculo, locacao,
+                        dataFormatada, horarioFormatado);
                 break;
             }
         }
@@ -64,7 +65,8 @@ public class Locacao {
         if (!veiculoEncontrado) {
             for (PessoaJuridica pessoaJ : Cliente.pessoasJuridicas) {
                 if (pessoaJ.getCnpj().equals(documentoCliente)) {
-                    veiculoEncontrado = alugarVeiculoParaPJ(pessoaJ, placaVeiculo, locacao);
+                    veiculoEncontrado = alugarVeiculoParaPJ(pessoaJ, placaVeiculo, locacao,
+                            dataFormatada, horarioFormatado);
                     break;
                 }
             }
@@ -77,28 +79,30 @@ public class Locacao {
         return veiculoEncontrado;
     }
 
-    private static boolean alugarVeiculoParaPF(PessoaFisica pessoaF, String placaVeiculo,Locacao locacao, String dataFormatada, String horaFormatada) {
+    private static boolean alugarVeiculoParaPF(PessoaFisica pessoaF, String placaVeiculo, Locacao locacao,
+                                               String dataFormatada, String horarioFormatada) {
         for (Veiculo veiculo : Veiculo.veiculos) {
             if (veiculo.getPlaca().equals(placaVeiculo) && veiculo.isDisponibilidade()) {
                 veiculo.setDisponibilidade(false);
                 Locacao.veiculosAlugados.add(veiculo);
-                System.out.println("Veículo " + veiculo.getModelo() + " alugado para " + pessoaF.getNome() +
-                        " com CPF: " + pessoaF.getCpf() + " No dia: " + dataFormatada +
-                        " as: " + horaFormatada + " No local: " + locacao.localLocacao);
+                System.out.println("Veículo " + veiculo.getModelo() + ", alugado para " + pessoaF.getNome() +
+                        " com CPF: " + pessoaF.getCpf() + ", no dia: " + dataFormatada +
+                        " ás: " + horarioFormatada + " No local: " + locacao.localLocacao);
                 return true;
             }
         }
         return false;
     }
 
-    private static boolean alugarVeiculoParaPJ(PessoaJuridica pessoaJ, String placaVeiculo, Locacao locacao) {
+    private static boolean alugarVeiculoParaPJ(PessoaJuridica pessoaJ, String placaVeiculo, Locacao locacao,
+                                               String dataFormatada, String horarioFormatada) {
         for (Veiculo veiculo : Veiculo.veiculos) {
             if (veiculo.getPlaca().equals(placaVeiculo) && veiculo.isDisponibilidade()) {
                 veiculo.setDisponibilidade(false);
                 Locacao.veiculosAlugados.add(veiculo);
-                System.out.println("Veículo " + veiculo.getModelo() + " alugado para " + pessoaJ.getRazaoSocial() +
-                        " com CNPJ: " + pessoaJ.getCnpj() + " No dia: " + locacao.dataLocacao +
-                        " as: " + locacao.horarioLocacao + " No local: " + locacao.localLocacao);
+                System.out.println("Veículo " + veiculo.getModelo() + ", alugado para " + pessoaJ.getRazaoSocial() +
+                        " com CNPJ: " + pessoaJ.getCnpj() + ", no dia: " + dataFormatada +
+                        " ás: " + horarioFormatada + " No local: " + locacao.localLocacao);
                 return true;
             }
         }
