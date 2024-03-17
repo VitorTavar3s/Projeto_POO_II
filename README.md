@@ -17,18 +17,18 @@ Este projeto consiste na criação de uma aplicação para gerenciar o aluguel d
 - Aluguel de veículos para pessoa física e jurídica;
 - Devolução de veículos por parte de pessoas físicas e jurídicas.
 
-Além disso, algumas regras de negócio devem ser seguidas:
+Regras de negócio:
 
-- Os veículos não podem ser repetidos, utilizando a placa como identificador de unicidade;
-- Tipos de veículos considerados: PEQUENO, MÉDIO e SUV;
-- Os aluguéis e devoluções devem incluir local, data e horário;
-- Aluguéis em horas quebradas contam como uma diária completa;
-- Veículos alugados não podem estar disponíveis;
-- Clientes não podem ser duplicados, utilizando CPF (Pessoa Física) e CNPJ (Pessoa Jurídica) como identificadores de unicidade;
-- Regras de devolução: desconto de 5% para clientes pessoa física com mais de 5 diárias e desconto de 10% para clientes pessoa jurídica com mais de 3 diárias.
-
-Valores base da diária por tipo de veículo:
-
+- RN1: Os veículos não podem ser repetidos; Pode utilizar a placa como identificador de unicidade;
+- RN2: Tipos de veículos que serão considerados: PEQUENO, MEDIO e SUV;
+- RN3: Os aluguéis e devoluções terão o local, data e horário;
+- RN4: Considere aluguel em horas quebradas como uma diária completa. Exemplo: uma devolução de um veículo alugado no dia 25 de janeiro às 15h30 será cobrado uma (1) diária até dia 26 de janeiro às 15h30, a partir desse horário já serão cobradas duas (2) diárias e assim por diante.
+- RN5: Os veículos que estiverem alugados não poderão estar disponíveis;
+- RN6: Clientes não podem estar duplicados; Considerar CPF (Pessoa Física) e CNPJ (Pessoa Jurídica) como identificadores de unicidade;
+- RN7: Regras de devolução:
+Caso o cliente pessoa física tenha ficado com o carro mais que 5 diárias terá direito a 5% de desconto.
+Caso o cliente pessoa jurídica tenha ficado com o carro mais que 3 diárias terá direito a 10% de desconto.
+- Valores base da diária por tipo de veículo:
 | Tipo de Veículo | Valor por dia |
 | --------------- | -------------- |
 | PEQUENO         | R$100,00       |
