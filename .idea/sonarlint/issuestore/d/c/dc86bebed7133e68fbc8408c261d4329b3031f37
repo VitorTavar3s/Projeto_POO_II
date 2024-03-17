@@ -1,0 +1,47 @@
+
+0
+java:S1220""Move this file to a named package.
+P
+java:S1118":Add a private constructor to hide the implicit public one.(Èªí¸
+@	java:S106	"+Replace this use of System.out by a logger.(›Ş°›
+@	java:S106"+Replace this use of System.out by a logger.(ÒØê¾
+E	java:S106"+Replace this use of System.out by a logger.(Ï»ô÷ûÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(öàÒ
+E	java:S106"+Replace this use of System.out by a logger.(µ‰Ã‚ÿÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(êŞ©Ûÿÿÿÿÿ
+E	java:S106!"+Replace this use of System.out by a logger.(›êªöıÿÿÿÿ
+@	java:S106&"+Replace this use of System.out by a logger.(¯áÔå
+E	java:S106-"+Replace this use of System.out by a logger.(şêå„ûÿÿÿÿ
+E	java:S106/"+Replace this use of System.out by a logger.(Şš¶Ûıÿÿÿÿ
+m
+java:S37763"RRefactor this method to reduce its Cognitive Complexity from 47 to the 15 allowed.(­¾‡ıüÿÿÿÿ
+@	java:S1064"+Replace this use of System.out by a logger.(‹Ï¾«
+E	java:S1069"+Replace this use of System.out by a logger.(ôŞ‘Òûÿÿÿÿ
+@	java:S106;"+Replace this use of System.out by a logger.(Ì·ø
+E	java:S106>"+Replace this use of System.out by a logger.(ÁË¸çüÿÿÿÿ
+@	java:S106C"+Replace this use of System.out by a logger.(‰øíè
+E	java:S106D"+Replace this use of System.out by a logger.(„æ¾ìÿÿÿÿÿ
+E	java:S106E"+Replace this use of System.out by a logger.(’º»œşÿÿÿÿ
+E	java:S106L"+Replace this use of System.out by a logger.(‹¦è†úÿÿÿÿ
+E	java:S106O"+Replace this use of System.out by a logger.(«¿Ùºÿÿÿÿÿ
+@	java:S106R"+Replace this use of System.out by a logger.(ì¾—
+E	java:S106W"+Replace this use of System.out by a logger.(î¹ÿèøÿÿÿÿ
+@	java:S106]"+Replace this use of System.out by a logger.(±ÌÚ¤
+E	java:S106`"+Replace this use of System.out by a logger.(òç„‚øÿÿÿÿ
+E	java:S106e"+Replace this use of System.out by a logger.(ì»û®ùÿÿÿÿ
+E	java:S106g"+Replace this use of System.out by a logger.(·Í«™ÿÿÿÿÿ
+E	java:S106i"+Replace this use of System.out by a logger.(øò‰Íüÿÿÿÿ
+E	java:S106l"+Replace this use of System.out by a logger.(“™¤şÿÿÿÿ
+@	java:S106q"+Replace this use of System.out by a logger.(‰øíè
+E	java:S106r"+Replace this use of System.out by a logger.(ÄŸ“¯şÿÿÿÿ
+E	java:S106s"+Replace this use of System.out by a logger.(œ€àÛıÿÿÿÿ
+@	java:S106z"+Replace this use of System.out by a logger.(‡ç§§
+@	java:S106}"+Replace this use of System.out by a logger.(É˜³´
+F	java:S106€"+Replace this use of System.out by a logger.(å æüÿÿÿÿ
+A	java:S106…"+Replace this use of System.out by a logger.(í ÿ
+F	java:S106‹"+Replace this use of System.out by a logger.(ÛòØùøÿÿÿÿ
+F	java:S106"+Replace this use of System.out by a logger.(òç„‚øÿÿÿÿ
+F	java:S106“"+Replace this use of System.out by a logger.(è©Šğüÿÿÿÿ
+F	java:S106•"+Replace this use of System.out by a logger.(Şš¶Ûıÿÿÿÿ
+á
+java:S65413"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 88 to 64, Complexity from 17 to 14, Nesting Level from 6 to 2, Number of Variables from 15 to 6.(­¾‡ıüÿÿÿÿ

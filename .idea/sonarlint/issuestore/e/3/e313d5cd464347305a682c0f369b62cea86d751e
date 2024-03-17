@@ -1,0 +1,27 @@
+
+7
+java:S1220""Move this file to a named package.8ß»Ôä1
+G	java:S106#"+Replace this use of System.out by a logger.(£Ûê÷8áæÉÔä1
+G	java:S106'"+Replace this use of System.out by a logger.(¾™¶ğ8áæÉÔä1
+L	java:S106)"+Replace this use of System.out by a logger.(¹‚ïëûÿÿÿÿ8áæÉÔä1
+L	java:S106L"+Replace this use of System.out by a logger.(¬ÇÏóùÿÿÿÿ8ñæÉÔä1
+G	java:S106X"+Replace this use of System.out by a logger.(…éŞœ8ñæÉÔä1
+G	java:S106g"+Replace this use of System.out by a logger.(ÎÀÏã8ñæÉÔä1
+n
+java:S3776q"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(“Ó¤*8ñæÉÔä1
+G	java:S106v"+Replace this use of System.out by a logger.(„†ëŒ8ñæÉÔä1
+X
+java:S1481y"6Remove this unused "veiculoEncontrado" local variable.(ºúÍ˜ùÿÿÿÿ8ñæÉÔä1
+H	java:S106ƒ"+Replace this use of System.out by a logger.(ÁŞŞı8ñæÉÔä1
+M	java:S106“"+Replace this use of System.out by a logger.(ˆæÿÿÿÿÿÿ8ñæÉÔä1
+M	java:S106"+Replace this use of System.out by a logger.(•î®ÿÿÿÿÿ8ñæÉÔä1
+L
+java:S1068"/Remove this unused "dataLocacao" private field.(€¢Èÿ8ñæÉÔä1
+O
+java:S1068"2Remove this unused "horarioLocacao" private field.(èÅ­¤8ñæÉÔä1
+O
+java:S1068"2Remove this unused "localDevolucao" private field.(›è–¾8ñæÉÔä1
+S
+java:S1068"1Remove this unused "dataDevolucao" private field.(àêÌ¦úÿÿÿÿ8ñæÉÔä1
+Q
+java:S1068"4Remove this unused "horarioDevolucao" private field.(´¸®‰8ñæÉÔä1

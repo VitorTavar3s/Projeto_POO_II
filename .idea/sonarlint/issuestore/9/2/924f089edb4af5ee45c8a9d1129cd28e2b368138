@@ -1,0 +1,39 @@
+
+r
+java:S1192 "\Define a constant instead of duplicating this literal "Digite uma opÃ§Ã£o vÃ¡lida!" 4 times.(›˜öÜ
+0
+java:S1220""Move this file to a named package.
+E	java:S106"+Replace this use of System.out by a logger.(Û›Í‰ùÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(õæ‘Œ
+@	java:S106"+Replace this use of System.out by a logger.(ƒ¾Ê—
+?	java:S106"+Replace this use of System.out by a logger.(İÈÎJ
+E	java:S106"+Replace this use of System.out by a logger.(šÂÇÏøÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(œêùÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(ñÿùğ
+?	java:S106"+Replace this use of System.out by a logger.(àªØ
+@	java:S106"+Replace this use of System.out by a logger.(¤èØ·
+@	java:S106 "+Replace this use of System.out by a logger.(›˜öÜ
+@	java:S106)"+Replace this use of System.out by a logger.(éˆª¼
+@	java:S106*"+Replace this use of System.out by a logger.(›íãÎ
+E	java:S106+"+Replace this use of System.out by a logger.(¹ç¬äşÿÿÿÿ
+E	java:S106,"+Replace this use of System.out by a logger.(ÁÕ€Óûÿÿÿÿ
+E	java:S106-"+Replace this use of System.out by a logger.(¸Óó¢ûÿÿÿÿ
+@	java:S1066"+Replace this use of System.out by a logger.(›˜öÜ
+@	java:S106@"+Replace this use of System.out by a logger.(€ÀÎê
+@	java:S106A"+Replace this use of System.out by a logger.(›íãÎ
+E	java:S106B"+Replace this use of System.out by a logger.(¹ç¬äşÿÿÿÿ
+@	java:S106C"+Replace this use of System.out by a logger.(ğ­¾Ÿ
+E	java:S106J"+Replace this use of System.out by a logger.(ßÇœØûÿÿÿÿ
+@	java:S106K"+Replace this use of System.out by a logger.(›˜öÜ
+?	java:S106U"+Replace this use of System.out by a logger.(ğÿça
+E	java:S106V"+Replace this use of System.out by a logger.(¯Â°†ıÿÿÿÿ
+?	java:S106W"+Replace this use of System.out by a logger.(œ›¯r
+@	java:S106X"+Replace this use of System.out by a logger.(ğ­¾Ÿ
+E	java:S106_"+Replace this use of System.out by a logger.(ÂÄÌˆúÿÿÿÿ
+E	java:S106b"+Replace this use of System.out by a logger.(Ä›ÆÙıÿÿÿÿ
+E	java:S106e"+Replace this use of System.out by a logger.(ßÇœØûÿÿÿÿ
+G	java:S106f"+Replace this use of System.out by a logger.(›˜öÜ8Â‚«Ìä1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Â‚«Ìä1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Â‚«Ìä1

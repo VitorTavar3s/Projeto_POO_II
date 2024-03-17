@@ -1,0 +1,31 @@
+
+7
+java:S1220""Move this file to a named package.8‹öÓä1
+S
+java:S1172"6Remove this unused method parameter "disponibilidade".(Ñ¢¡Ñ8ªöÓä1
+L	java:S106H"+Replace this use of System.out by a logger.(û½°øÿÿÿÿ8ªöÓä1
+L	java:S106M"+Replace this use of System.out by a logger.(ÕßòÊüÿÿÿÿ8ªöÓä1
+L	java:S106R"+Replace this use of System.out by a logger.(ğÆŒ–úÿÿÿÿ8ªöÓä1
+L	java:S106T"+Replace this use of System.out by a logger.(ŠÖÔ ÿÿÿÿÿ8ªöÓä1
+L	java:S106V"+Replace this use of System.out by a logger.(¤É¤¼ûÿÿÿÿ8ªöÓä1
+C	java:S131\""Add a default case to this switch.(¶ŸİÔùÿÿÿÿ8ªöÓä1
+L	java:S106n"+Replace this use of System.out by a logger.(Ôæ±ªùÿÿÿÿ8ªöÓä1
+L	java:S106s"+Replace this use of System.out by a logger.(óãïûüÿÿÿÿ8ªöÓä1
+L	java:S106u"+Replace this use of System.out by a logger.(ëàŒ ÿÿÿÿÿ8ªöÓä1
+L	java:S106w"+Replace this use of System.out by a logger.(öäşÅşÿÿÿÿ8ªöÓä1
+M	java:S106"+Replace this use of System.out by a logger.(ê“ıèùÿÿÿÿ8ªöÓä1
+H	java:S106†"+Replace this use of System.out by a logger.(ö¦”Å8ªöÓä1
+H	java:S106‡"+Replace this use of System.out by a logger.(£’¾»8ªöÓä1
+H	java:S106ˆ"+Replace this use of System.out by a logger.(İš¶Ş8ªöÓä1
+H	java:S106‰"+Replace this use of System.out by a logger.(ÒòÀ³8ªöÓä1
+M	java:S106Š"+Replace this use of System.out by a logger.(µ£¥Çøÿÿÿÿ8ªöÓä1
+M	java:S106"+Replace this use of System.out by a logger.(‚â½˜øÿÿÿÿ8ªöÓä1
+M	java:S106”"+Replace this use of System.out by a logger.(ş‡¤Ôùÿÿÿÿ8ªöÓä1
+H	java:S106›"+Replace this use of System.out by a logger.(Ü¢Ÿ°8ªöÓä1
+M	java:S106 "+Replace this use of System.out by a logger.(øàËÁşÿÿÿÿ8ªöÓä1
+M	java:S106¥"+Replace this use of System.out by a logger.(­ëàüıÿÿÿÿ8ªöÓä1
+?	java:S131§""Add a default case to this switch.(¤¾åÍ8ªöÓä1
+M	java:S106µ"+Replace this use of System.out by a logger.(òç„‚øÿÿÿÿ8ªöÓä1
+M	java:S106»"+Replace this use of System.out by a logger.(Ò”‡úÿÿÿÿ8ªöÓä1
+M	java:S106Â"+Replace this use of System.out by a logger.(ëàŒ ÿÿÿÿÿ8ªöÓä1
+M	java:S106È"+Replace this use of System.out by a logger.(ø—«‚şÿÿÿÿ8ªöÓä1

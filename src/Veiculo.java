@@ -8,12 +8,19 @@ public class Veiculo {
     String marca;
     String modelo;
     String tipo;
+
+    private Locacao locacao;
     Double valorLocacao;
     boolean disponibilidade  = true;
     static List<Veiculo> veiculos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public Veiculo(String placa, String marca, String modelo, String tipo,Double valorLocacao,boolean disponibilidade) {
+    public Veiculo(String placa,
+                   String marca,
+                   String modelo,
+                   String tipo,
+                   Double valorLocacao,
+                   boolean disponibilidade) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
@@ -58,6 +65,14 @@ public class Veiculo {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Locacao getLocacao() {
+        return locacao;
+    }
+
+    public void setLocacao(Locacao locacao) {
+        this.locacao = locacao;
     }
 
     public boolean isDisponibilidade() {
