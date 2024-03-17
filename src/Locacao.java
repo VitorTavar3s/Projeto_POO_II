@@ -115,6 +115,8 @@ public class Locacao {
     public static void devolverVeiculo(String documentoCliente) {
         boolean clienteEncontrado = false;
         Scanner scanner = new Scanner(System.in);
+        PessoaJuridica pessoaJuridica = null;
+        PessoaFisica pessoaFisica = null;
 
         System.out.println("Digite a placa do veículo que deseja devolver:");
         String placaVeiculo = scanner.nextLine().toUpperCase();
@@ -142,9 +144,10 @@ public class Locacao {
                         veiculoEncontrado = true;
                         veiculo.setDisponibilidade(true);
                         veiculosAlugados.remove(veiculo);
+                        pessoaFisica = pessoa;
                         System.out.println("Veículo devolvido por " + pessoa.getNome() +
                                 ", pessoa física com CPF: " + pessoa.getCpf() + " no local: " + localDevolucao);
-                        calcularValorAluguel(veiculo, dataDevolucao, horarioDevolucao);
+                        calcularValorAluguel(veiculo, dataDevolucao, horarioDevolucao, pessoaFisica, pessoaJuridica);
                         break;
                     }
                 }
@@ -160,10 +163,12 @@ public class Locacao {
                         if (veiculo.getPlaca().equals(placaVeiculo)) {
                             veiculo.setDisponibilidade(true);
                             veiculosAlugados.remove(veiculo);
+                            pessoaJuridica = pessoa;
                             System.out.println("Veículo devolvido por " + pessoa.getRazaoSocial() +
                                     ", pessoa jurídica com CNPJ: " + pessoa.getCnpj() +
                                     " no local: " + localDevolucao);
-                            calcularValorAluguel(veiculo, dataDevolucao, horarioDevolucao);
+                            calcularValorAluguel(veiculo, dataDevolucao, horarioDevolucao,
+                                    pessoaFisica, pessoaJuridica);
                             break;
                         }
                     }
@@ -177,7 +182,11 @@ public class Locacao {
         }
     }
 
-    private static void calcularValorAluguel(Veiculo veiculo, LocalDate dataDevolucao, LocalTime horarioDevolucao) {
+    private static void calcularValorAluguel(Veiculo veiculo,
+                                             LocalDate dataDevolucao,
+                                             LocalTime horarioDevolucao,
+                                             PessoaFisica pessoaFisica,
+                                             PessoaJuridica pessoaJuridica) {
         LocalDate dataLocacao = veiculo.getLocacao().dataLocacao;
         LocalTime horarioLocacao = veiculo.getLocacao().horarioLocacao;
         LocalDateTime locacaoCompleta = LocalDateTime.of(dataLocacao, horarioLocacao);
@@ -192,8 +201,18 @@ public class Locacao {
         double valorDiaria = veiculo.valorLocacao;
         double valorTotal = diasAlugado * valorDiaria;
 
+        double desconto = 0.0;
+        if (pessoaFisica != null && diasAlugado > 5) {
+            desconto = valorTotal * 0.05;
+        } else if (pessoaJuridica != null && diasAlugado > 3) {
+            desconto = valorTotal * 0.10;
+        }
+
+        valorTotal -= desconto;
+
         System.out.println("O cliente ficou " + diasAlugado +
                 " dia(s) com o veículo " + veiculo.modelo + " e o valor total do aluguel foi de: R$" + valorTotal);
+
     }
 
 }
