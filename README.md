@@ -37,11 +37,11 @@ Caso o cliente pessoa jurídica tenha ficado com o carro mais que 3 diárias ter
 | SUV             | R$200,00       |
 
 ## Utilizado:
-- Java 17
-- Programação Orientada a Objetos (POO)
+- Java 17.
+- Programação Orientada a Objetos I e II.
 
 ## Overview do Projeto:
-O projeto ADA LocateCar consiste em uma aplicação para gerenciamento de locadora de veículos. Utilizamos Java 17 e aplicamos os conceitos de Programação Orientada a Objetos (POO) para desenvolvê-lo.
+O projeto ADA LocateCar consiste em uma aplicação para gerenciamento de locadora de veículos. Utilizamos Java 17 e aplicamos os conceitos de Programação Orientada a Objetos I e II para desenvolvê-lo.
 
 ### Facilidades e Dificuldades:
 - **Facilidades:**  
