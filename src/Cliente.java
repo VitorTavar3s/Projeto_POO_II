@@ -48,7 +48,6 @@ public class Cliente {
         }
     }
 
-
     public static void alterarCliente() {
         System.out.println("Digite o tipo de cliente a ser alterado (F - Pessoa Física / J - Pessoa Jurídica):");
         char tipoCliente = scanner.next().toUpperCase().charAt(0);

@@ -73,21 +73,21 @@ public class Locacao {
         }
 
         if (!veiculoEncontrado) {
-            System.out.println("Veículo não disponível ou não encontrado.");
+            System.out.println("Não foi possível alugar o veículo.");
         }
 
         return veiculoEncontrado;
     }
 
     private static boolean alugarVeiculoParaPF(PessoaFisica pessoaF, String placaVeiculo, Locacao locacao,
-                                               String dataFormatada, String horarioFormatada) {
+                                               String dataFormatada, String horarioFormatado) {
         for (Veiculo veiculo : Veiculo.veiculos) {
             if (veiculo.getPlaca().equals(placaVeiculo) && veiculo.isDisponibilidade()) {
                 veiculo.setDisponibilidade(false);
                 Locacao.veiculosAlugados.add(veiculo);
-                System.out.println("Veículo " + veiculo.getModelo() + ", alugado para " + pessoaF.getNome() +
-                        " com CPF: " + pessoaF.getCpf() + ", no dia: " + dataFormatada +
-                        " ás: " + horarioFormatada + " No local: " + locacao.localLocacao);
+                System.out.println(String.format("Veículo %s alugado para %s com CPF %s, no dia %s às %s. Local: %s",
+                        veiculo.getModelo(), pessoaF.getNome(), pessoaF.getCpf(), dataFormatada,
+                        horarioFormatado, locacao.localLocacao));
                 return true;
             }
         }
@@ -95,30 +95,30 @@ public class Locacao {
     }
 
     private static boolean alugarVeiculoParaPJ(PessoaJuridica pessoaJ, String placaVeiculo, Locacao locacao,
-                                               String dataFormatada, String horarioFormatada) {
+                                               String dataFormatada, String horarioFormatado) {
         for (Veiculo veiculo : Veiculo.veiculos) {
             if (veiculo.getPlaca().equals(placaVeiculo) && veiculo.isDisponibilidade()) {
                 veiculo.setDisponibilidade(false);
                 Locacao.veiculosAlugados.add(veiculo);
-                System.out.println("Veículo " + veiculo.getModelo() + ", alugado para " + pessoaJ.getRazaoSocial() +
-                        " com CNPJ: " + pessoaJ.getCnpj() + ", no dia: " + dataFormatada +
-                        " ás: " + horarioFormatada + " No local: " + locacao.localLocacao);
+                System.out.println(String.format("Veículo %s alugado para %s com CNPJ %s, no dia %s às %s. Local: %s",
+                        veiculo.getModelo(), pessoaJ.getRazaoSocial(), pessoaJ.getCnpj(), dataFormatada,
+                        horarioFormatado, locacao.localLocacao));
                 return true;
             }
         }
         return false;
     }
 
+
     public static void devolverVeiculo(String documentoCliente) {
 
         boolean clienteEncontrado = false;
-
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Digite a placa do veículo que deseja devolver:");
         String placaVeiculo = scanner.nextLine().toUpperCase();
 
         boolean veiculoEncontrado = false;
-
 
         for (PessoaFisica pessoa : Cliente.pessoasFisicas) {
             if (pessoa.getCpf().equals(documentoCliente)) {
