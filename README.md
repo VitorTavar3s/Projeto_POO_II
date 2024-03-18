@@ -1,10 +1,6 @@
 # ADA LocateCar - Locadora de veículos 🚗
 
-## Autores:
-- [Bruno Tavares](https://www.linkedin.com/in/brunoviniciusdev/)
-- [Ingrid Maciel](https://www.linkedin.com/in/ingrid-m-maciel/)
-- [Pedro Renan](https://www.linkedin.com/in/pedrorenan/)
-- [Vitor Tavares](https://www.linkedin.com/in/vitortavares1/)
+#### ✒️author- [Bruno Tavares](https://www.linkedin.com/in/brunoviniciusdev/) - [Ingrid Maciel](https://www.linkedin.com/in/ingrid-m-maciel/) - [Pedro Renan](https://www.linkedin.com/in/pedrorenan/) - [Vitor Tavares](https://www.linkedin.com/in/vitortavares1/)
 
 ## Enunciado:
 Este projeto consiste na criação de uma aplicação para gerenciar o aluguel de veículos, aplicando os conceitos estudados em aula. Os requisitos obrigatórios incluem:
@@ -36,9 +32,34 @@ Caso o cliente pessoa jurídica tenha ficado com o carro mais que 3 diárias ter
 | MÉDIO           | R$150,00       |
 | SUV             | R$200,00       |
 
-## Utilizado:
-- Java 17.
-- Programação Orientada a Objetos I e II.
+---
+
+### 🛠️ Utilizado :
+
+-   Java 17
+-   Programação Orientada a Objetos(POO)
+-   SOLID
+---
+
+### ⚙️Funcionalidades :
+
+#### 🚗Veículo :
+    
+    -   Cadastrar Veículo
+    -   Editar Veículo
+    -   Buscar Veículo
+    
+#### 👨🏽‍🎤Cliente :
+    
+    -   Cadastrar Cliente
+    -   Editar Cliente
+
+#### 💵Aluguel :
+    
+    -   Alugar Veículo
+    -   Devolver Veículo
+---
+    
 
 ## Overview do Projeto:
 O projeto ADA LocateCar consiste em uma aplicação para gerenciamento de locadora de veículos. Utilizamos Java 17 e aplicamos os conceitos de Programação Orientada a Objetos I e II para desenvolvê-lo.
