@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +10,59 @@ import java.util.Scanner;
 
 public class Locacao {
     private String localLocacao;
-    private LocalDate dataLocacao;
+    private static LocalDate dataLocacao;
     private LocalTime horarioLocacao;
     private String localDevolucao;
     private LocalDateTime dataDevolucao;
     private LocalDateTime horarioDevolucao;
+
+    public String getLocalLocacao() {
+        return localLocacao;
+    }
+
+    public void setLocalLocacao(String localLocacao) {
+        this.localLocacao = localLocacao;
+    }
+
+    public LocalDate getDataLocacao() {
+        return dataLocacao;
+    }
+
+    public void setDataLocacao(LocalDate dataLocacao) {
+        this.dataLocacao = dataLocacao;
+    }
+
+    public LocalTime getHorarioLocacao() {
+        return horarioLocacao;
+    }
+
+    public void setHorarioLocacao(LocalTime horarioLocacao) {
+        this.horarioLocacao = horarioLocacao;
+    }
+
+    public String getLocalDevolucao() {
+        return localDevolucao;
+    }
+
+    public void setLocalDevolucao(String localDevolucao) {
+        this.localDevolucao = localDevolucao;
+    }
+
+    public LocalDateTime getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(LocalDateTime dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+
+    public LocalDateTime getHorarioDevolucao() {
+        return horarioDevolucao;
+    }
+
+    public void setHorarioDevolucao(LocalDateTime horarioDevolucao) {
+        this.horarioDevolucao = horarioDevolucao;
+    }
 
     private static List<Veiculo> veiculosAlugados = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
@@ -123,6 +172,20 @@ public class Locacao {
 
         System.out.println("Digite a data de devolução (formato: dd/mm/yyyy):");
         String dataDevolucaoStr = scanner.nextLine();
+
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        try {
+            LocalDate dataDevolucao = LocalDate.parse(dataDevolucaoStr, dataFormatada);
+            if (dataDevolucao.isBefore(dataLocacao)) {
+                System.out.println("Erro: A data de devolução não pode ser anterior à data de locação que foi: " +
+                        dataLocacao.format(dataFormatada) + ".");
+                return;
+            }
+        } catch (DateTimeParseException e) {
+            System.out.println("Erro: A data de devolução informada é inválida. Utilize o formato dd/mm/aaaa.");
+            return;
+        }
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataDevolucao = LocalDate.parse(dataDevolucaoStr, formatter);

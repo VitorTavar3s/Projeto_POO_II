@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b20eb32f-be3a-4791-8e35-e276fd4a4987" name="Changes" comment="Implementado desconto para pessoaFisica e pessoaJuridica">
+    <list default="true" id="b20eb32f-be3a-4791-8e35-e276fd4a4987" name="Changes" comment="Implementado validações no menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Locacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Locacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Veiculo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710715840508</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Implementado validações no menu">
+      <option name="closed" value="true" />
+      <created>1710720104162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710720104162</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +191,8 @@
     <MESSAGE value="Adicionado valor da locação pelo tipo do veículo" />
     <MESSAGE value="Implementado devolverVeiculo" />
     <MESSAGE value="Implementado desconto para pessoaFisica e pessoaJuridica" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementado desconto para pessoaFisica e pessoaJuridica" />
+    <MESSAGE value="Implementado validações no menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementado validações no menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -194,11 +201,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Locacao.java</url>
-          <line>203</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
