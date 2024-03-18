@@ -89,7 +89,7 @@ public class Veiculo {
 
         for (Veiculo veiculo: veiculos) {
             if (veiculo.getPlaca().equals(placa)){
-                System.out.println("Placa de veículo já cadastrada, cadastre outro veículo.\n");
+                System.out.println("Veículo da placa: " + placa + " já cadastrada, cadastre outro veículo.\n");
                 return false;
             }
         }
@@ -127,92 +127,101 @@ public class Veiculo {
     }
 
     public static boolean alterarVeiculo(){
-        System.out.println("Veículos:");
-        for (Veiculo veiculo: veiculos) {
-            System.out.println(veiculo);
-        }
-        System.out.println("Digite a placa do veículo que deseja alterar:");
-        String placa = scanner.nextLine().toUpperCase();
-        Veiculo veiculoSelecionado = null;
-        for (Veiculo veiculo: veiculos) {
-            if (placa.equals(veiculo.getPlaca())){
-                veiculoSelecionado = veiculo;
-                break;
+        if (veiculos.isEmpty()){
+            System.out.println("Nenhum veículo cadastrado! Primeiro cadastre um veículo para poder fazer alteração!");
+        }else {
+
+            System.out.println("Veículos:");
+            for (Veiculo veiculo : veiculos) {
+                System.out.println(veiculo);
+            }
+            System.out.println("Digite a placa do veículo que deseja alterar:");
+            String placa = scanner.nextLine().toUpperCase();
+            Veiculo veiculoSelecionado = null;
+            for (Veiculo veiculo : veiculos) {
+                if (placa.equals(veiculo.getPlaca())) {
+                    veiculoSelecionado = veiculo;
+                    break;
+                }
+            }
+            if (veiculoSelecionado == null) {
+                System.out.println("Placa não encontrada,voltando pro menu anterior.");
+                return false;
+            }
+
+
+            System.out.println("O que deseja alterar no veículo? Escolha a opção: ");
+            System.out.println("1 - Placa");
+            System.out.println("2 - Marca");
+            System.out.println("3 - Modelo");
+            System.out.println("4 - Tipo");
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    scanner.nextLine();
+                    System.out.println("Digite a nova placa: ");
+                    String novaPlaca = scanner.nextLine().toUpperCase();
+                    for (Veiculo veiculo : veiculos) {
+                        if (veiculo.getPlaca().equals(novaPlaca)) {
+                            System.out.println("Placa de veículo já cadastrada, voltando ao menu anterior.\n");
+                            return false;
+                        }
+                    }
+                    veiculoSelecionado.setPlaca(novaPlaca);
+                    break;
+                case 2:
+                    System.out.println("Digite a nova marca: ");
+                    String novoMarca = scanner.next();
+                    veiculoSelecionado.setMarca(novoMarca);
+                    break;
+                case 3:
+                    System.out.println("Digite o novo modelo: ");
+                    String novoModelo = scanner.next();
+                    veiculoSelecionado.setModelo(novoModelo);
+                    break;
+                case 4:
+                    System.out.println("Digite o novo tipo (P-PEQUENO / M-MÉDIO / S-SUV): ");
+                    String novoTipo = scanner.next().toUpperCase();
+                    switch (novoTipo) {
+                        case "P":
+                            novoTipo = "Pequeno";
+                            break;
+                        case "M":
+                            novoTipo = "Médio";
+                            break;
+                        case "S":
+                            novoTipo = "SUV";
+                            break;
+                    }
+                    veiculoSelecionado.setTipo(novoTipo);
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
             }
         }
-        if(veiculoSelecionado == null) {
-            System.out.println("Placa não encontrada,voltando pro menu anterior.");
-            return false;
-        }
-
-
-        System.out.println("O que deseja alterar no veículo? Escolha a opção: ");
-        System.out.println("1 - Placa");
-        System.out.println("2 - Marca");
-        System.out.println("3 - Modelo");
-        System.out.println("4 - Tipo");
-        int opcao = scanner.nextInt();
-
-        switch (opcao) {
-            case 1:
-                scanner.nextLine();
-                System.out.println("Digite a nova placa: ");
-                String novaPlaca = scanner.nextLine().toUpperCase();
-                for (Veiculo veiculo: veiculos) {
-                    if (veiculo.getPlaca().equals(novaPlaca)){
-                        System.out.println("Placa de veículo já cadastrada, voltando ao menu anterior.\n");
-                        return false;
-                    }
-                }
-                veiculoSelecionado.setPlaca(novaPlaca);
-                break;
-            case 2:
-                System.out.println("Digite a nova marca: ");
-                String novoMarca = scanner.next();
-                veiculoSelecionado.setMarca(novoMarca);
-                break;
-            case 3:
-                System.out.println("Digite o novo modelo: ");
-                String novoModelo = scanner.next();
-                veiculoSelecionado.setModelo(novoModelo);
-                break;
-            case 4:
-                System.out.println("Digite o novo tipo (P-PEQUENO / M-MÉDIO / S-SUV): ");
-                String novoTipo = scanner.next().toUpperCase();
-                switch (novoTipo){
-                    case "P":
-                        novoTipo = "Pequeno";
-                        break;
-                    case "M":
-                        novoTipo = "Médio";
-                        break;
-                    case "S":
-                        novoTipo = "SUV";
-                        break;
-                }
-                veiculoSelecionado.setTipo(novoTipo);
-                break;
-            default:
-                System.out.println("Opção inválida.");
-        }
-        return true;
+            return true;
     }
 
     public static void buscarVeiculo(){
-        System.out.println("Digite o modelo do veículo que quer procurar:");
-        String modelo = scanner.nextLine();
+        if (veiculos.isEmpty()){
+            System.out.println("Nenhum veículo cadastrado! Primeiro cadastre um veículo para poder executar buscas!");
+        }else {
+            System.out.println("Digite o modelo do veículo que quer procurar:");
+            String modelo = scanner.nextLine();
 
-        boolean encontrado = false;
+            boolean encontrado = false;
 
-        for (Veiculo veiculo: veiculos) {
-            if (veiculo.getModelo().toLowerCase().contains(modelo.toLowerCase())){
-                System.out.println(veiculo);
-                encontrado = true;
+            for (Veiculo veiculo : veiculos) {
+                if (veiculo.getModelo().toLowerCase().contains(modelo.toLowerCase())) {
+                    System.out.println(veiculo);
+                    encontrado = true;
+                }
             }
-        }
 
-        if (!encontrado){
-            System.out.println("Desculpe, não temos o veículo do modelo " + modelo + "!" );
+            if (!encontrado) {
+                System.out.println("Desculpe, não temos o veículo do modelo " + modelo + "!");
+            }
         }
     }
 

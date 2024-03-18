@@ -194,7 +194,7 @@ public class Locacao {
 
         long horasAlugado = ChronoUnit.HOURS.between(locacaoCompleta, devolucaoCompleta);
         long diasAlugado = horasAlugado / 24;
-        if (horasAlugado % 24 != 0 || horasAlugado > 24) {
+        if (horasAlugado % 24 != 0 || horasAlugado >= 24) {
             diasAlugado++;
         }
 
